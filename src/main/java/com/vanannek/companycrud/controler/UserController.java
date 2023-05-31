@@ -1,5 +1,6 @@
 package com.vanannek.companycrud.controler;
 
+import com.vanannek.companycrud.dto.UserDTO;
 import com.vanannek.companycrud.entity.User;
 import com.vanannek.companycrud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +35,21 @@ public class UserController {
     @PutMapping("/update/{id}")
     public ResponseEntity<Void> updateUser(@PathVariable Integer id, @RequestBody User user) {
         userService.updateUser(id, user);
+
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
         userService.deleteUser(id);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/update-name/{id}")
+    public ResponseEntity<Void> updateName(@PathVariable Integer id, @RequestBody UserDTO userDTO) {
+        userService.updateName(id, userDTO);
+
         return ResponseEntity.noContent().build();
     }
 }

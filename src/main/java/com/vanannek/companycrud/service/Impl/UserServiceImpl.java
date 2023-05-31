@@ -1,5 +1,6 @@
 package com.vanannek.companycrud.service.Impl;
 
+import com.vanannek.companycrud.dto.UserDTO;
 import com.vanannek.companycrud.entity.User;
 import com.vanannek.companycrud.repository.UserRepository;
 import com.vanannek.companycrud.service.UserService;
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id=" + id));
         user.setId(id);
+
         userRepository.save(user);
     }
 
@@ -50,6 +52,18 @@ public class UserServiceImpl implements UserService {
         User user = userRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id=" + id));
+
         userRepository.delete(user);
+    }
+
+    @Override
+    public void updateName(Integer id, UserDTO userDTO) {
+        // check weather the user is in database or not
+        User user = userRepository
+                .findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id=" + id));
+        user.setName(userDTO.getName());
+
+        userRepository.save(user);
     }
 }
