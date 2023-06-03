@@ -1,4 +1,8 @@
+app:
+  name: company-crud
+
 spring:
+  profiles: production
   datasource:
     url: jdbc:mysql://containers-us-west-71.railway.app:7719/railway
     username: root
@@ -13,8 +17,3 @@ spring:
     hibernate.ddl-auto: update
     show-sql: true
     open-in-view: true
-
-
-
-
-
