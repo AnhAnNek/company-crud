@@ -58,6 +58,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>company-crud</finalName>
 	</build>
 
 </project>

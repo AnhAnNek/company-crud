@@ -1,11 +1,4 @@
-app:
-  name: company-crud
-
-server:
-  port: 8081
-
 spring:
-  profiles: development
   datasource:
     url: jdbc:mysql://localhost:3306/user_management
     username: root
@@ -20,7 +13,3 @@ spring:
     hibernate.ddl-auto: update
     show-sql: true
     open-in-view: true
-
-logging:
-  level:
-    root: DEBUG
