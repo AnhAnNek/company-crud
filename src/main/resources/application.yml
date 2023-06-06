@@ -1,6 +1,3 @@
-app:
-  name: company-crud
-
 spring:
   profiles:
     active: dev

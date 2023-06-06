@@ -1,6 +1,17 @@
-# define base docker image
-FROM openjdk:17
-LABEL maintainer="javaguides.net"
+# Define base Docker image
+FROM maven:3.8.4-openjdk-17-slim
+
+# Set the working directory
+WORKDIR /company-crud
+
+# Copy the project files to the container
+COPY . .
+
+# Build the application
+RUN mvn package -DskipTests
+
+# Expose the port on which the application will run
 EXPOSE 8080
-ADD target/company-crud.jar company-crud.jar
-ENTRYPOINT ["java", "-jar", "company-crud.jar"]
+
+# Start the Spring Boot application
+CMD ["java", "-jar", "target/company-crud.jar"]
