@@ -27,15 +27,19 @@ public class Project {
     private String details;
 
     @Column(name = "created_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
     @Column(name = "start_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date start;
 
     @Column(name = "end_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date end;
 
     @Column(name = "completed_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date completed;
 
     private String progress;

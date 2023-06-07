@@ -1,8 +1,6 @@
 package com.vanannek.companycrud.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +22,7 @@ public class TaskCheckOut {
     private Long taskID;
 
     @Column(name = "updated_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date updated;
 
     private Short progress;

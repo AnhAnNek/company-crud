@@ -24,6 +24,7 @@ public class Employee {
     @Column(name = "gender")
     private EGender gender;
 
+    @Temporal(TemporalType.DATE)
     private Date birthday = new Date();
 
     @Column(name = "identify_card")
