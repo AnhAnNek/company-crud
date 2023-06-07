@@ -1,27 +1,30 @@
 package com.vanannek.companycrud.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
+import java.util.Date;
 
 @Data
 @Entity
 @EnableAutoConfiguration
-@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class TaskCheckOut {
     @Id
-    @GeneratedValue
-    @Setter
-    private Integer id;
-    private String name;
-    private Integer age;
-    private String address;
+    @Column(name = "time_sheet_id")
+    private Long timeShtID;
+
+    @Column(name = "task_id")
+    private Long taskID;
+
+    @Column(name = "updated_date")
+    private Date updated;
+
+    private Short progress;
 }

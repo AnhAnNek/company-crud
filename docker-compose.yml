@@ -12,8 +12,7 @@ services:
   company-crud:
     container_name: company-crud
     image: company-crud
-    build:
-      context: .
+    build: .
     ports:
       - 8000:8080
     depends_on:
@@ -21,6 +20,7 @@ services:
     environment:
       MYSQL_HOST: mysqldb
       MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_URL: jdbc:mysql://mysqldb:3307/test

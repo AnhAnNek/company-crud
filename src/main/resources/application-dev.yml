@@ -1,8 +1,12 @@
+server:
+  port: 8000
+
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/test
+    url: jdbc:mysql://localhost:3307/CompanyManagement?useSSL=false
     username: root
     password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:
       mode: always

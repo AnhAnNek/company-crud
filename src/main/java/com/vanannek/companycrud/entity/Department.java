@@ -1,29 +1,24 @@
 package com.vanannek.companycrud.entity;
 
-import com.vanannek.companycrud.enums.EPermission;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
-import java.math.BigDecimal;
-
 @Data
 @Entity
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+public class Department {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "permission")
-    private EPermission perms;
+    @Column(name = "dept_name")
+    private String name;
 
-    private String title;
-
-    private BigDecimal salary;
+    @Column(name = "dept_head_id")
+    private Long deptHeadId;
 }

@@ -3,11 +3,11 @@ package com.vanannek.companycrud.enums;
 import lombok.Getter;
 
 public enum ETaskStatus {
-    InProcess(1, "Đang thực hiện"),
-    Completed(2, "Đã hoàn thành"),
-    Overdue(3, "Quá hạn"),
-    Reviewing(4, "Đang xem xét"),
-    Cancelled(5, "Hủy");
+    IN_PROCESS(1, "Đang thực hiện"),
+    COMPLETED(2, "Đã hoàn thành"),
+    OVERDUE(3, "Quá hạn"),
+    REVIEWING(4, "Đang xem xét"),
+    CANCELLED(5, "Hủy");
 
     @Getter
     private final Integer value;

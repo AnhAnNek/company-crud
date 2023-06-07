@@ -9,33 +9,44 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
 @EnableAutoConfiguration
-@Table(name = "projects")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Project {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
+
     private String details;
+
     @Column(name = "created_date")
-    private Date createdDate;
+    private Date created;
+
     @Column(name = "start_date")
-    private Date startDate;
+    private Date start;
+
     @Column(name = "end_date")
-    private Date endDate;
+    private Date end;
+
     @Column(name = "completed_date")
-    private Date completedDate;
+    private Date completed;
+
     private String progress;
-    @Enumerated(EnumType.STRING)
+
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "status_id")
     private EProjStatus status;
+
     @Column(name = "owner_id")
-    private Integer ownerID;
+    private Long ownerId;
+
     @Column(name = "bonus_salary")
     private BigDecimal bonusSalary;
 }
