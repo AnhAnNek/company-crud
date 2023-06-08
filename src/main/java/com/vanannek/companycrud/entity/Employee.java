@@ -24,6 +24,7 @@ public class Employee {
     @Column(name = "gender")
     private EGender gender;
 
+    @Temporal(TemporalType.DATE)
     private Date birthday = new Date();
 
     @Column(name = "identify_card")
@@ -35,6 +36,9 @@ public class Employee {
     private String phoneNumber = "";
 
     private String address = "";
+
+    @Column(name = "department_id")
+    private Long depId;
 
     @Column(name = "role_id")
     private Integer roleId;

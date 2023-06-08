@@ -22,20 +22,25 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "proj_name")
     private String name;
 
     private String details;
 
     @Column(name = "created_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
     @Column(name = "start_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date start;
 
     @Column(name = "end_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date end;
 
     @Column(name = "completed_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date completed;
 
     private String progress;

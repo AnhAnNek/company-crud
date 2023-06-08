@@ -12,13 +12,13 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Account {
-    @Id
     @Column(name = "acc_user")
     private String username;
 
     @Column(name = "acc_pass")
     private String pass;
 
+    @Id
     @Column(name = "employee_id")
     private Long empId;
 }

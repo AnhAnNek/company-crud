@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 @Data
@@ -17,19 +18,22 @@ import java.util.Date;
 public class LeaveRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id = "";
+    private Long id;
 
     private String reason = "";
 
     private String notes = "";
 
     @Column(name = "created_date")
+    @Temporal(TemporalType.DATE)
     private Date created = new Date();
 
     @Column(name = "start_date")
+    @Temporal(TemporalType.DATE)
     private Date start = new Date();
 
     @Column(name = "end_date")
+    @Temporal(TemporalType.DATE)
     private Date end = new Date();
 
     @Column(name = "status_id")

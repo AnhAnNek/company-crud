@@ -17,7 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class Task {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -25,8 +25,10 @@ public class Task {
     private String explanation;
 
     @Column(name = "start_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date start;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date deadline;
 
     private String progress;

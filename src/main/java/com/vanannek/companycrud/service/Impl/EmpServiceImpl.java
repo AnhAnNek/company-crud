@@ -14,36 +14,41 @@ import java.util.List;
 public class EmpServiceImpl implements EmpService {
 
     @Autowired
-    private EmpRepository repo;
+    private EmpRepository repos;
 
     @Override
     public void addEmp(Employee emp) {
-        repo.save(emp);
+        repos.save(emp);
     }
 
     @Override
     public List<Employee> getEmps() {
-        return repo.findAll();
+        return repos.findAll();
     }
 
     @Override
     public void updateEmp(Long id, Employee emp) {
-        // check weather the user is in database or not
-        repo
+        repos
             .findById(id)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id=" + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
         emp.setId(id);
 
-        repo.save(emp);
+        repos.save(emp);
     }
 
     @Override
     public void deleteEmp(Long id) {
-        // check weather the user is in database or not
-        Employee emp = repo
+        Employee emp = repos
                 .findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id=" + id));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
 
-        repo.delete(emp);
+        repos.delete(emp);
+    }
+
+    @Override
+    public Employee getEmp(Long id) {
+        return repos
+                .findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
     }
 }

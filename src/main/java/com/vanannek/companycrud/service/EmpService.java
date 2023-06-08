@@ -12,4 +12,6 @@ public interface EmpService {
     void updateEmp(Long id, Employee emp);
 
     void deleteEmp(Long id);
+
+    Employee getEmp(Long id);
 }
