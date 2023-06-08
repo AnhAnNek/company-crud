@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -14,16 +15,24 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskCheckOut {
-    @Id
-    @Column(name = "time_sheet_id")
-    private Long timeShtID;
-
-    @Column(name = "task_id")
-    private Long taskID;
+    @EmbeddedId
+    private TaskCheckOutId id;
 
     @Column(name = "updated_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updated;
 
     private Short progress;
+
+    @Embeddable
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class TaskCheckOutId implements Serializable {
+
+        @Column(name = "time_sheet_id")
+        private Long timeShtID;
+
+        @Column(name = "task_id")
+        private Long taskID;
+    }
 }

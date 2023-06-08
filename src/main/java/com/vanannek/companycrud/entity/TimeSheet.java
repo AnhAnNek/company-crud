@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class TimeSheet {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "employee_id")
