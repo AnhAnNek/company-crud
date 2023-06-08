@@ -30,7 +30,7 @@ public class EmpServiceImpl implements EmpService {
     public void updateEmp(Long id, Employee emp) {
         repos
             .findById(id)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id=" + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
         emp.setId(id);
 
         repos.save(emp);
@@ -40,8 +40,15 @@ public class EmpServiceImpl implements EmpService {
     public void deleteEmp(Long id) {
         Employee emp = repos
                 .findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id=" + id));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
 
         repos.delete(emp);
+    }
+
+    @Override
+    public Employee getEmp(Long id) {
+        return repos
+                .findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
     }
 }

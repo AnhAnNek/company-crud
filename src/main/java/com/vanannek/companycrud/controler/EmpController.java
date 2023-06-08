@@ -39,4 +39,9 @@ public class EmpController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/get")
+    public Employee getEmp(@RequestParam Long id) {
+        return empService.getEmp(id);
+    }
 }
