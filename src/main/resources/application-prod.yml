@@ -1,18 +1,12 @@
-app:
-  name: company-crud
-
 spring:
-  profiles: production
   datasource:
     url: jdbc:mysql://containers-us-west-71.railway.app:7719/railway
     username: root
     password: k857JrmNJzUfhFKbXsUq
     driverClassName: com.mysql.cj.jdbc.Driver
-
   sql:
     init:
       mode: always
-
   jpa:
     hibernate.ddl-auto: update
     show-sql: true
