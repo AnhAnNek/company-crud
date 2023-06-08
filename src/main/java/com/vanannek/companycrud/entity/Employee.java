@@ -37,6 +37,9 @@ public class Employee {
 
     private String address = "";
 
+    @Column(name = "department_id")
+    private Long depId;
+
     @Column(name = "role_id")
     private Integer roleId;
 }

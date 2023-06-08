@@ -41,6 +41,15 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account getAcc(Long empId) {
-        return repos.findById(empId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id =" + empId));
+        return repos
+                .findById(empId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id =" + empId));
+    }
+
+    @Override
+    public Account findByUsername(String username) {
+        return repos
+                .findByUsername(username)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Not found username=" + username));
     }
 }

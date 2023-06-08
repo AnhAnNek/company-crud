@@ -37,4 +37,9 @@ public class AccountController {
     public Account getAcc(@RequestParam Long empId) {
         return accService.getAcc(empId);
     }
+
+    @GetMapping("/get/{username}")
+    public Account searchByUsername(@PathVariable String username) {
+        return accService.findByUsername(username);
+    }
 }

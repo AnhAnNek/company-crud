@@ -10,4 +10,6 @@ public interface AccountService {
     void deleteAcc(Long empId);
 
     Account getAcc(Long empId);
+
+    Account findByUsername(String username);
 }

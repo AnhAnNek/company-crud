@@ -22,6 +22,7 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "proj_name")
     private String name;
 
     private String details;
