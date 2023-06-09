@@ -1,7 +1,8 @@
-package com.vanannek.companycrud.service.Impl;
+package com.vanannek.companycrud.service.impl;
 
 import com.vanannek.companycrud.entity.Project;
-import com.vanannek.companycrud.repository.ProjectRepository;
+import com.vanannek.companycrud.repository.project.ProjectRepository;
+import com.vanannek.companycrud.repository.project.ProjectReposCustom;
 import com.vanannek.companycrud.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

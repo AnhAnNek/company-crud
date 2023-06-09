@@ -1,6 +1,5 @@
-package com.vanannek.companycrud.service.Impl;
+package com.vanannek.companycrud.service.impl;
 
-import com.vanannek.companycrud.entity.Employee;
 import com.vanannek.companycrud.entity.ProjectAssignment;
 import com.vanannek.companycrud.repository.ProjAssignRepository;
 import com.vanannek.companycrud.service.ProjAssignService;

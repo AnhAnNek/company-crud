@@ -1,4 +1,4 @@
-package com.vanannek.companycrud.service.Impl;
+package com.vanannek.companycrud.service.impl;
 
 import com.vanannek.companycrud.entity.Account;
 import com.vanannek.companycrud.repository.AccountRepository;

@@ -1,5 +1,19 @@
-version: "3"
+version: '3'
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mysqldb
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_URL: jdbc:mysql://mysqldb:3307/test
+
   mysqldb:
     container_name: mysqldb
     image: mysql:latest
@@ -8,18 +22,3 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: test
-
-  company-crud:
-    container_name: company-crud
-    image: company-crud
-    build:
-      context: .
-    ports:
-      - '8000:8080'
-    depends_on:
-      - mysqldb
-    environment:
-      MYSQL_HOST: mysqldb
-      MYSQL_DATABASE: test
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_URL: jdbc:mysql://mysqldb:3307/test

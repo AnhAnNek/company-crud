@@ -1,17 +1,27 @@
-# Define base Docker image
-FROM maven:3.8.4-openjdk-17-slim
+# Use an official Maven image as the base image
+FROM maven:3.8.3-openjdk-11 AS builder
 
-# Set the working directory
-WORKDIR /company-crud
+# Set the working directory in the container
+WORKDIR /app
 
-# Copy the project files to the container
-COPY . .
+# Copy the pom.xml and download the dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+# Copy the source code to the container
+COPY src ./src
 
 # Build the application
 RUN mvn package -DskipTests
 
-# Expose the port on which the application will run
-EXPOSE 8080
+# Use an official OpenJDK image as the base image for running the application
+FROM openjdk:11-jre-slim
 
-# Start the Spring Boot application
-CMD ["java", "-jar", "target/company-crud.jar"]
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the built JAR file from the previous stage
+COPY --from=build /app/target/company-crud.jar .
+
+# Specify the command to run your application
+CMD ["java", "-jar", "company-crud.jar"]

@@ -1,14 +1,13 @@
-package com.vanannek.companycrud.repository;
+package com.vanannek.companycrud.repository.project;
 
 import com.vanannek.companycrud.entity.Project;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.List;
 
-@Repository
-public interface ProjectRepository extends JpaRepository<Project, Long> {
+@NoRepositoryBean
+public interface ProjectReposCustom {
 
     @Query(value = "SELECT * FROM project WHERE id IN (SELECT project_assignment pa, employee e " +
             "WHERE pa.department_id = e.department_id AND e.id=:memberId)", nativeQuery = true)

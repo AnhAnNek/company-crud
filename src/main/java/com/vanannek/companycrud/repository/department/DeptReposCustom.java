@@ -1,19 +1,18 @@
-package com.vanannek.companycrud.repository;
+package com.vanannek.companycrud.repository.department;
 
 import com.vanannek.companycrud.entity.Department;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
-@Repository
-public interface DeptRepository extends JpaRepository<Department, Long> {
+@NoRepositoryBean
+public interface DeptReposCustom {
 
     @Query(value = "SELECT d.* FROM department d, project_assignment pa WHERE d.id = pa.department_id " +
-            "WHERE pa.project_id = :projId", nativeQuery = true)
+            "AND pa.project_id = :projId", nativeQuery = true)
     List<Department> findDepartmentsInProject(@Param("projId") Long projId);
 
     @Query(value = "SELECT * FROM department WHERE id NOT IN (SELECT department_id FROM project_assignment" +
