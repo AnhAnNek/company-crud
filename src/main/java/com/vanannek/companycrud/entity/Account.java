@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 @Data
 @Entity
+@Table(name = "account")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor

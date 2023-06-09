@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@Table(name = "project_assignment")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor

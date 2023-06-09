@@ -11,6 +11,7 @@ import java.util.Date;
 
 @Data
 @Entity
+@Table(name = "task_check_out")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor

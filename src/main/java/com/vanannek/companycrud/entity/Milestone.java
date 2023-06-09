@@ -10,6 +10,7 @@ import java.util.Date;
 
 @Data
 @Entity
+@Table(name = "milestone")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor
