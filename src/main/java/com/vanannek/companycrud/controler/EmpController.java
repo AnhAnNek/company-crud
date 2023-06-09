@@ -44,4 +44,9 @@ public class EmpController {
     public Employee getEmp(@RequestParam Long id) {
         return empService.getEmp(id);
     }
+
+    @GetMapping("/get-employees-in-proj/{projId}")
+    public List<Employee> getEmployeesInProject(@PathVariable Long projId) {
+        return empService.findEmployeesInProject(projId);
+    }
 }

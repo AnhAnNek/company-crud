@@ -51,4 +51,9 @@ public class EmpServiceImpl implements EmpService {
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
     }
+
+    @Override
+    public List<Employee> findEmployeesInProject(Long projId) {
+        return repos.findEmployeesInProject(projId);
+    }
 }

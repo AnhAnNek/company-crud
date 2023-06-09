@@ -27,7 +27,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void update(Integer id, Project proj) {
+    public void update(Long id, Project proj) {
         repos
             .findById(id)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid project id=" + id));
@@ -37,7 +37,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         Project proj = repos
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid project id=" + id));
@@ -46,7 +46,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<Project> findByOwnerId(Long ownerId) {
-        return repos.findByOwnerId(ownerId);
+    public List<Project> findProjectsByMemberId(Long memberId) {
+        return repos.findProjectsByMemberId(memberId);
+    }
+
+    @Override
+    public List<Project> findProjectsByOwnerId(Long ownerId) {
+        return repos.findProjectsByOwnerId(ownerId);
     }
 }

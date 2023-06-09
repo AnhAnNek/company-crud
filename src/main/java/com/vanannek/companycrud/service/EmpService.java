@@ -14,4 +14,6 @@ public interface EmpService {
     void deleteEmp(Long id);
 
     Employee getEmp(Long id);
+
+    List<Employee> findEmployeesInProject(Long projId);
 }

@@ -27,21 +27,26 @@ public class ProjectController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Void> update(@PathVariable Integer id, @RequestBody Project proj) {
+    public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Project proj) {
         projService.update(id, proj);
 
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         projService.delete(id);
 
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/get-by-owner")
-    public List<Project> getByEmployeeId(@RequestParam Long ownerId) {
-        return projService.findByOwnerId(ownerId);
+    @GetMapping("/get-projects-by-member-id/{memberId}")
+    public List<Project> getProjectsByMemberId(@PathVariable Long memberId) {
+        return projService.findProjectsByMemberId(memberId);
+    }
+
+    @GetMapping("/get-projects-by-owner-id/{ownerId}")
+    public List<Project> getProjectsByOwnerId(@PathVariable Long ownerId) {
+        return projService.findProjectsByOwnerId(ownerId);
     }
 }
