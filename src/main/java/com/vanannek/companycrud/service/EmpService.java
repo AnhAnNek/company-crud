@@ -15,5 +15,5 @@ public interface EmpService {
 
     Employee getEmp(Long id);
 
-    List<Employee> findEmployeesInProject(Long projId);
+    List<Employee> findByProjectId(Long projId);
 }

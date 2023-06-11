@@ -53,7 +53,7 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
-    public List<Employee> findEmployeesInProject(Long projId) {
+    public List<Employee> findByProjectId(Long projId) {
         return repos.findByProjectId(projId);
     }
 }
