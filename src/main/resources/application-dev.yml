@@ -1,12 +1,6 @@
 server:
   port: 8000
 
-#  datasource:
-#    url: jdbc:mysql://mysqldb:3307/test?allowPublicKeyRetrieval=true&useSSL=false
-#    username: root
-#    password: root
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-
 spring:
   devtools:
     livereload:
