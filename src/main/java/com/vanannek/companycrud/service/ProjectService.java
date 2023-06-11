@@ -9,9 +9,11 @@ public interface ProjectService {
 
     List<Project> getAll();
 
-    void update(Integer id, Project proj);
+    void update(Long id, Project proj);
 
-    void delete(Integer id);
+    void delete(Long id);
 
-    List<Project> findByOwnerId(Long ownerId);
+    List<Project> findProjectsByMemberId(Long memberId);
+
+    List<Project> findProjectsByOwnerId(Long ownerId);
 }

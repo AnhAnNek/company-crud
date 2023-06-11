@@ -3,6 +3,7 @@ package com.vanannek.companycrud.entity;
 import com.vanannek.companycrud.enums.EGender;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "employee")
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee {

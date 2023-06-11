@@ -1,7 +1,8 @@
-package com.vanannek.companycrud.service.Impl;
+package com.vanannek.companycrud.service.impl;
 
 import com.vanannek.companycrud.entity.Project;
-import com.vanannek.companycrud.repository.ProjectRepository;
+import com.vanannek.companycrud.repository.project.ProjectRepository;
+import com.vanannek.companycrud.repository.project.ProjectReposCustom;
 import com.vanannek.companycrud.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +28,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void update(Integer id, Project proj) {
+    public void update(Long id, Project proj) {
         repos
             .findById(id)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid project id=" + id));
@@ -37,7 +38,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         Project proj = repos
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid project id=" + id));
@@ -46,7 +47,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<Project> findByOwnerId(Long ownerId) {
-        return repos.findByOwnerId(ownerId);
+    public List<Project> findProjectsByMemberId(Long memberId) {
+        return repos.findProjectsByMemberId(memberId);
+    }
+
+    @Override
+    public List<Project> findProjectsByOwnerId(Long ownerId) {
+        return repos.findProjectsByOwnerId(ownerId);
     }
 }
