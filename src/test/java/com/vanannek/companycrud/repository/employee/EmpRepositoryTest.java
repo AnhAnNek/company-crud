@@ -34,7 +34,7 @@ class EmpRepositoryTest {
                 .email("anhannek@gmail.com")
                 .phoneNumber("0971234124")
                 .address("Số 773, Ấp 1")
-                .depId(1L)
+                .deptId(1L)
                 .roleId(1)
                 .build();
         repos.save(employeeExist);
@@ -52,7 +52,7 @@ class EmpRepositoryTest {
                 .email("Annek@gmail.com")
                 .phoneNumber("0971236653")
                 .address("Số 779, Ấp 9")
-                .depId(1L)
+                .deptId(1L)
                 .roleId(1)
                 .build();
 
