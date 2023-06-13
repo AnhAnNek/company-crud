@@ -41,7 +41,7 @@ public class Employee {
     private String address = "";
 
     @Column(name = "department_id")
-    private Long depId;
+    private Long deptId;
 
     @Column(name = "role_id")
     private Integer roleId;
