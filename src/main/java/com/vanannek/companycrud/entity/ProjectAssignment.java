@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@Table(name = "project_assignment")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,14 +19,15 @@ public class ProjectAssignment {
     private ProjAssignId id;
 
     @Embeddable
+    @Data
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ProjAssignId implements Serializable {
 
         @Column(name = "project_id")
-        private Long projID;
+        private Long projId;
 
         @Column(name = "department_id")
-        private Long deptID;
+        private Long deptId;
     }
 }

@@ -1,7 +1,7 @@
-package com.vanannek.companycrud.service.Impl;
+package com.vanannek.companycrud.service.impl;
 
 import com.vanannek.companycrud.entity.Employee;
-import com.vanannek.companycrud.repository.EmpRepository;
+import com.vanannek.companycrud.repository.employee.EmpRepository;
 import com.vanannek.companycrud.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,5 +50,10 @@ public class EmpServiceImpl implements EmpService {
         return repos
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid emp id=" + id));
+    }
+
+    @Override
+    public List<Employee> findByProjectId(Long projId) {
+        return repos.findByProjectId(projId);
     }
 }

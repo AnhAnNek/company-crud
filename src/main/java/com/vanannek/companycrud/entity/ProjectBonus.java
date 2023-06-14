@@ -11,6 +11,7 @@ import java.util.Date;
 
 @Data
 @Entity
+@Table(name = "project_bonus")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor

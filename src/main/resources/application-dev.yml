@@ -2,6 +2,9 @@ server:
   port: 8000
 
 spring:
+  devtools:
+    livereload:
+      enabled: true
   datasource:
     url: jdbc:mysql://localhost:3307/CompanyManagement?allowPublicKeyRetrieval=true&useSSL=false
     username: root

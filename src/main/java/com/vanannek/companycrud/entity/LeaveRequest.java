@@ -12,6 +12,7 @@ import java.util.Date;
 
 @Data
 @Entity
+@Table(name = "leave_request")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor

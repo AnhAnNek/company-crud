@@ -14,13 +14,14 @@ import java.util.Set;
 
 @Data
 @Entity
+@Table(name = "project")
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "proj_name")
     private String name;
