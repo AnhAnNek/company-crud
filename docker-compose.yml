@@ -1,6 +1,7 @@
 version: '3'
 services:
-  company-db:
+  company-crud-db:
+    container_name: company-crud-db
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -9,19 +10,23 @@ services:
     ports:
       - 3307:3306
     volumes:
-      - company-db-data:/var/lib/mysql
+      - company-crud-data:/var/lib/mysql
 
-  company-app:
+  company-crud-app:
+    container_name: company-crud-app
     restart: on-failure
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - company-db
+      - company-crud-db
     ports:
       - 8000:8080
     environment:
       - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:mysql://company-crud-db:3306/CompanyManagement?allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
 
 volumes:
-  company-db-data:
+  company-crud-data:

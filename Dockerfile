@@ -1,13 +1,13 @@
 # Stage 1: Build the application
 FROM maven:3.8.3-openjdk-17 AS build
-WORKDIR /app
+WORKDIR /company-crud
 COPY pom.xml .
 COPY src ./src
 RUN mvn package -DskipTests
 
 # Stage 2: Set up the runtime environment
 FROM openjdk:17-jdk-slim AS runtime
-WORKDIR /app
+WORKDIR /company-crud
 
 # Copy the built JAR file from the previous stage
 COPY --from=build /company-crud/target/company-crud.jar .
