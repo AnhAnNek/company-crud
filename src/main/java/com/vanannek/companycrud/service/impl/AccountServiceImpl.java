@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @Service
 public class AccountServiceImpl implements AccountService {
 
@@ -15,28 +17,46 @@ public class AccountServiceImpl implements AccountService {
     private AccountRepository repos;
 
     @Override
-    public void addAcc(Account acc) {
-        repos.save(acc);
+    public Account addAcc(Account acc) {
+        try
+        {
+            return repos.save(acc);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
-    public void updateAcc(Long empId, Account acc) {
+    public Account updateAcc(Long empId, Account acc) {
         repos
             .findById(empId)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id =" + empId));
         acc.setEmpId(empId);
 
-        repos.save(acc);
+        return repos.save(acc);
     }
 
     @Override
-    public void deleteAcc(Long empId) {
-        Account acc = repos
-                .findById(empId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid user id =" + empId));
-        acc.setEmpId(empId);
+    public boolean deleteAcc(Long empId) {
+        Optional<Account> optAcc = repos.findById(empId);
 
-        repos.delete(acc);
+        if(optAcc.isEmpty())
+            return false;
+
+        try
+        {
+            Account acc = optAcc.get();
+            repos.delete(acc);
+            return true;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
