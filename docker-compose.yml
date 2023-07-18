@@ -12,27 +12,5 @@ services:
     volumes:
       - company-crud-data:/var/lib/mysql
 
-  company-crud-app:
-    container_name: company-crud-app
-    restart: on-failure
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - company-crud-db
-    ports:
-      - "8000:8080"
-      - "5005:5005"
-    environment:
-      - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_DATASOURCE_URL=jdbc:mysql://company-crud-db:3306/CompanyManagement?allowPublicKeyRetrieval=true&useSSL=false
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
-      - SPRING_SQL_INIT_MODE=always
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SPRING_JPA_SHOW_SQL=true
-      - SPRING_JPA_OPEN_IN_VIEW=true
-      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
-
 volumes:
   company-crud-data:
