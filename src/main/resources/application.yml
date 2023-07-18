@@ -17,3 +17,7 @@ spring:
       ddl-auto: update
     show-sql: true
     open-in-view: true
+    
+# must be at least 256 bits
+jwt:
+  key: 9faa372517ac1d389758d3750fc07acf00f542277f26fec1ce4593e93f64e338
