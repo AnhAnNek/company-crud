@@ -3,6 +3,7 @@ package com.vanannek.companycrud.entity;
 import com.vanannek.companycrud.enums.EProjStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -18,6 +19,7 @@ import java.util.Set;
 @EnableAutoConfiguration
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
