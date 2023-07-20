@@ -23,18 +23,21 @@ public class Milestone {
 
     private String explanation;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "start_date")
     private Date start = new Date();
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "end_date")
     private Date end = new Date();
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "completed_date")
     private Date completed = new Date();
 
     @Column(name = "owner_id")
-    private String ownerId;
+    private Long ownerId;
 
     @Column(name = "project_id")
-    private String projId;
+    private Long projId;
 }
