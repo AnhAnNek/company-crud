@@ -23,7 +23,7 @@ public class Employee {
     @Column(name = "full_name")
     private String name = "";
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     private EGender gender;
 

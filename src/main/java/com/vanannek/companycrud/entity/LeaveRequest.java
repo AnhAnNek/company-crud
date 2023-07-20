@@ -40,7 +40,7 @@ public class LeaveRequest {
     private Date end = new Date();
 
     @Column(name = "status_id")
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private ELeavStatus status = ELeavStatus.UNAPPROVED;
 
     @Column(name = "requester_id")

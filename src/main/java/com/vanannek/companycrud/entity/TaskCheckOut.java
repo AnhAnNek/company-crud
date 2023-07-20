@@ -25,7 +25,7 @@ public class TaskCheckOut {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updated;
 
-    private Short progress;
+    private Integer progress;
 
     @Embeddable
     @NoArgsConstructor

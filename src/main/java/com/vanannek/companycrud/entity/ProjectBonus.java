@@ -33,5 +33,5 @@ public class ProjectBonus {
     @Column(name = "project_id")
     private Long projId;
 
-    private Short percent = 0;
+    private Integer percent = 0;
 }

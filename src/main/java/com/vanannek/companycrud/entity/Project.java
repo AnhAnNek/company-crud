@@ -48,7 +48,7 @@ public class Project {
 
     private String progress;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     @Column(name = "status_id")
     private EProjStatus status;
 

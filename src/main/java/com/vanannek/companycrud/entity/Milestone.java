@@ -35,8 +35,8 @@ public class Milestone {
     private Date completed = new Date();
 
     @Column(name = "owner_id")
-    private String ownerId;
+    private Long ownerId;
 
     @Column(name = "project_id")
-    private String projId;
+    private Long projId;
 }

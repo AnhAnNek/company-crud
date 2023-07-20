@@ -33,7 +33,7 @@ public class Task {
     @Temporal(TemporalType.TIMESTAMP)
     private Date deadline;
 
-    private String progress;
+    private Integer progress;
 
     @Column(name = "owner_id")
     private Long ownerId;
@@ -42,9 +42,9 @@ public class Task {
     private Long assigneeId;
 
     @Column(name = "project_id")
-    private String projId;
+    private Long projId;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     @Column(name = "status_id")
     private ETaskStatus status;
 }
